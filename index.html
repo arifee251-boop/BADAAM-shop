@@ -2,65 +2,72 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>BADAAM dried fruit</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BADAAM - فروشگاه میوه خشک</title>
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
 
-<!-- صفحه انتخاب زبان -->
-<div id="languageScreen">
-  <div class="language-box">
+<!-- انتخاب زبان -->
+<div id="language-overlay" class="overlay">
+  <div class="lang-text">
     <p>زبان خود را انتخاب کنید</p>
-    <p>خپل ژبه وټاکئ</p>
-    <p>Please select your language</p>
-
-    <div class="language-buttons">
-      <button onclick="setLanguage('fa')">دری</button>
-      <button onclick="setLanguage('ps')">پشتو</button>
-      <button onclick="setLanguage('en')">English</button>
-    </div>
+    <p>Choose your language</p>
+    <p>خپله ژبه وټاکئ</p>
+  </div>
+  <div class="lang-buttons">
+    <button onclick="setLanguage('fa')">دری</button>
+    <button onclick="setLanguage('ps')">پشتو</button>
+    <button onclick="setLanguage('en')">English</button>
   </div>
 </div>
 
-<div id="app" class="hidden">
-
-<header class="site-header">
-  <h1>فروشگاه اینترنتی میوه خُشک بادام</h1>
-  <h2 class="brand">BADAAM dried fruit</h2>
+<!-- سرصفحه -->
+<header class="header">
   <div class="shop-info">
-    📞 ۰۷۸۵۲۷۷۲۵۱ – ۰۷۹۸۹۶۳۰۰۷<br>
-    💬 Telegram / WhatsApp: ۰۷۹۸۹۶۳۰۰۷
+    <div class="shop-name">فروشگاه اینترنتی میوه خُشک بادام</div>
+    <div class="shop-name-en">BADAAM dried fruit</div>
+    <div class="contacts">
+      <p>📞 ۰۷۸۵۲۷۷۲۵۱ - ۰۷۹۸۹۶۳۰۰۷</p>
+      <p>💬 Telegram: BADAMMdriedfruitbot</p>
+      <p>📱 WhatsApp: ۰۷۹۸۹۶۳۰۰۷</p>
+    </div>
   </div>
 </header>
 
-<main>
-  <h3>محصولات</h3>
-  <div id="products"></div>
+<section id="products-section">
+  <h2>محصولات</h2>
+  <div id="products-container"></div>
+</section>
 
-  <h3>فاکتور</h3>
-  <table>
+<section id="cart-section">
+  <h2>فاکتور</h2>
+  <table id="cart-table">
     <thead>
       <tr>
-        <th>#</th>
+        <th>شماره</th>
         <th>نام محصول</th>
-        <th>کیلو</th>
-        <th>فی‌کیلو</th>
+        <th>مقدار (کیلو)</th>
+        <th>فی کیلو</th>
         <th>مبلغ</th>
       </tr>
     </thead>
-    <tbody id="invoice"></tbody>
+    <tbody id="cart-body"></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">جمع کل</td>
+        <td id="cart-total">0</td>
+      </tr>
+    </tfoot>
   </table>
-
-  <div id="total"></div>
-</main>
+</section>
 
 <footer>
-  تماس با ما | BADAAM
+  <h2>تماس با ما</h2>
+  <p>📞 ۰۷۸۵۲۷۷۲۵۱ - ۰۷۹۸۹۶۳۰۰۷</p>
+  <p>💬 Telegram: BADAMMdriedfruitbot</p>
 </footer>
 
-</div>
-
-<script src="app.js"></script>
 </body>
 </html>
