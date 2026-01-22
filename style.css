@@ -1,1 +1,44 @@
+body {
+  font-family: sans-serif;
+  background: #fafafa;
+  padding: 10px;
+}
 
+h1, h2 {
+  text-align: center;
+}
+
+.product, .cart-item {
+  background: #fff;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #2ca36c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+}
+
+.box {
+  background: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
