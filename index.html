@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <title>BADAAM | فروشگاه میوه خشک</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BADAAM | فروشگاه میوه خشک</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🥜 فروشگاه BADAAM</h1>
+<div class="header">
+  <h1>BADAAM</h1>
+  <p>فروشگاه آنلاین میوه خشک</p>
+  <p>📞 تماس:۰۷۹۸۹۶۳۰۰۷ | 📱 تلگرام: @BADAAMdriedfruitbot | 💬 واتساپ:+۹۳۷۹۸۹۶۳۰۰۷/+۹۳۷۸۵۲۷۷۲۵۱</p>
+</div>
 
-<!-- بخش محصولات -->
+<hr>
+
 <div id="products"></div>
 
-<!-- سبد خرید -->
-<h2>🛒 سبد خرید</h2>
-<div id="cart"></div>
+<hr>
 
-<!-- پیش نمایش سفارش -->
-<button onclick="showPreview()">پیش‌نمایش سفارش</button>
-<div id="preview" class="box hidden"></div>
+<div id="cart-section">
+  <h2>سبد خرید</h2>
+  <div id="cart-items"></div>
+  <button id="preview-order">پیش‌نمایش سفارش</button>
+</div>
 
-<!-- فرم سفارش -->
-<div id="checkout" class="box hidden">
-  <h3>📦 اطلاعات ارسال</h3>
-  <input id="name" placeholder="نام مشتری">
-  <input id="phone" placeholder="شماره تماس">
-  <textarea id="address" placeholder="آدرس کامل"></textarea>
+<hr>
 
-  <select id="payment">
-    <option value="cash">پرداخت نقدی</option>
-    <option value="online">پرداخت آنلاین</option>
-  </select>
+<div id="order-form" style="display:none;">
+  <h2>فرم ثبت سفارش</h2>
+  <form id="form">
+    <label>نام و نام خانوادگی:</label><br>
+    <input type="text" id="name" required><br>
 
-  <button onclick="submitOrder()">ثبت نهایی سفارش</button>
+    <label>آدرس:</label><br>
+    <input type="text" id="address" required><br>
+
+    <label>شماره تماس:</label><br>
+    <input type="tel" id="phone" required><br>
+
+    <label>نوع پرداخت:</label><br>
+    <select id="payment">
+      <option value="نقدی">نقدی</option>
+      <option value="کارت به کارت">کارت به کارت</option>
+    </select><br><br>
+
+    <button type="submit">ثبت سفارش</button>
+  </form>
 </div>
 
 <script src="app.js"></script>
