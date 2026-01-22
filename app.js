@@ -1,16 +1,16 @@
 const products = [
-  { id: 1, name: "مغز بادام فی‌کیلو", price: 250 },
-  { id: 2, name: "بادام کاغذی ستربایی فی‌کیلو", price: 250 },
-  { id: 3, name: "بادام کاغذی مخملی فی‌کیلو", price: 250 },
-  { id: 4, name: "بادام کاغذی پسته‌ای فی‌کیلو", price: 250 },
-  { id: 5, name: "بادام سنگی با پوست فی‌کیلو", price: 250 },
-  { id: 6, name: "بادام کاغذی شاخ بُز فی‌کیلو", price: 250 },
-  { id: 7, name: "کشمش فی‌کیلو", price: 120 },
+  { id: 1, name: "مغز بادام", price: 250 },
+  { id: 2, name: "بادام کاغذی ستربایی", price: 250 },
+  { id: 3, name: "بادام کاغذی مخملی", price: 250 },
+  { id: 4, name: "بادام کاغذی پسته‌ای", price: 250 },
+  { id: 5, name: "بادام سنگی با پوست", price: 250 },
+  { id: 6, name: "بادام کاغذی شاخ بُز", price: 250 },
+  { id: 7, name: "کشمش", price: 120 },
   { id: 8, name: "خرمای خُشک", price: 180 },
-  { id: 9, name: "انجیر خُشک فی‌کیلو", price: 300 },
-  { id: 10, name: "کِشته زردآلو(برگی) فی‌کیلو", price: 220 },
-  { id: 11, name: "کِشته زردآلو خسته‌دار فی‌کیلو", price: 220 },
-  { id: 12, name: "کِشته غُلینگ خسته‌دار فی‌کیلو", price: 250 }
+  { id: 9, name: "انجیر خُشک", price: 300 },
+  { id: 10, name: "کِشته زردآلو(برگی)", price: 220 },
+  { id: 11, name: "کِشته زردآلو خسته‌دار", price: 220 },
+  { id: 12, name: "کِشته غُلینگ خسته‌دار", price: 250 }
 ];
 
 let cart = [];
@@ -24,7 +24,7 @@ function renderProducts() {
     div.classList.add("product");
     div.innerHTML = `
       <h3>${p.name}</h3>
-      <p>قیمت: ${p.price} افغانی فی‌کیلو</p>
+      <p>قیمت: ${p.price} افغانی</p>
       <div>
         <button onclick="changeQuantity(${p.id}, -0.25)">➖</button>
         <span id="qty-${p.id}">${p.quantity}</span> کیلو
@@ -50,19 +50,36 @@ function addToCart(id) {
   } else {
     cart.push({ ...p });
   }
-  alert(`${p.name} اضافه شد (${p.quantity} کیلو)`);
+  renderCartTable();
 }
 
-document.getElementById("preview-order").addEventListener("click", () => {
+function renderCartTable() {
+  const tbody = document.querySelector("#cart-table tbody");
+  tbody.innerHTML = "";
+  let total = 0;
+  cart.forEach((item, index) => {
+    const amount = item.price * item.quantity;
+    total += amount;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${index+1}</td>
+      <td>${item.name}</td>
+      <td>${item.quantity}</td>
+      <td>${item.price}</td>
+      <td>${amount}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  document.getElementById("total-amount").innerText = total;
+}
+
+document.getElementById("show-order-form").addEventListener("click", () => {
   if(cart.length === 0) {
     alert("سبد خرید خالی است!");
     return;
   }
-  let items = cart.map(x => `${x.name} : ${x.quantity} کیلو - ${x.price*x.quantity} افغانی`).join("\n");
-  if(confirm("پیش‌نمایش سفارش:\n\n"+items+"\n\nادامه می‌دهی؟")) {
-    document.getElementById("order-form").style.display = "block";
-    window.scrollTo(0, document.body.scrollHeight);
-  }
+  document.getElementById("order-form").style.display = "block";
+  window.scrollTo(0, document.body.scrollHeight);
 });
 
 document.getElementById("form").addEventListener("submit", (e) => {
@@ -72,15 +89,17 @@ document.getElementById("form").addEventListener("submit", (e) => {
   let phone = document.getElementById("phone").value;
   let payment = document.getElementById("payment").value;
 
-  let orderSummary = `سفارش ثبت شد ✅\n\nنام: ${name}\nآدرس: ${address}\nتلفن: ${phone}\nپرداخت: ${payment}\n\nمحصولات:\n` + 
-    cart.map(x => `${x.name} : ${x.quantity} کیلو`).join("\n");
+  let orderSummary = `سفارش ثبت شد ✅\n\nنام: ${name}\nآدرس: ${address}\nتلفن: ${phone}\nپرداخت: ${payment}\n\nمحصولات:\n` +
+    cart.map(x => `${x.name} : ${x.quantity} کیلو - ${x.price*x.quantity}`).join("\n") +
+    `\n\nجمع کل: ${cart.reduce((sum, x)=> sum + x.price*x.quantity,0)}`;
 
   alert(orderSummary);
 
-  // پاک کردن سبد خرید
   cart = [];
   renderProducts();
+  renderCartTable();
   document.getElementById("order-form").style.display = "none";
 });
 
 renderProducts();
+renderCartTable();
