@@ -1,49 +1,88 @@
 body {
   margin: 0;
-  font-family: Tahoma, sans-serif;
-  background: #e6f0ff; /* آبی کم‌رنگ */
+  font-family: sans-serif;
+  background: #d6eaf8;
 }
 
-.header {
-  background: #1b2a6d; /* نیلی */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #1f618d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
   color: white;
+}
+
+.lang-box {
   text-align: center;
+}
+
+.lang-box p {
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+.lang-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.lang-buttons button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  background: gold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+header {
+  background: #1f618d;
+  color: white;
   padding: 15px;
+  text-align: center;
 }
 
 .brand {
-  font-size: 36px;
-  color: gold;
-  margin: 5px 0;
+  font-style: italic;
+  letter-spacing: 2px;
 }
 
-section {
-  padding: 10px;
+.contact {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-.product {
+main {
+  padding: 15px;
+}
+
+#products .product {
   background: white;
-  border-radius: 8px;
   padding: 10px;
-  margin: 8px 0;
+  margin-bottom: 10px;
+  border-radius: 6px;
 }
 
-.qty-box {
+.qty {
   display: flex;
-  align-items: center;
   gap: 10px;
+  align-items: center;
 }
 
-.qty-box button {
-  width: 30px;
-  height: 30px;
-  font-size: 18px;
+.qty button {
+  padding: 5px 10px;
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
   background: white;
+  margin-top: 10px;
+  border-collapse: collapse;
 }
 
 th, td {
@@ -52,24 +91,9 @@ th, td {
   text-align: center;
 }
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: #1b2a6d;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.overlay button {
-  margin-top: 10px;
-  padding: 12px 25px;
-  font-size: 18px;
-  border-radius: 6px;
-  border: none;
-  background: gold;
-  cursor: pointer;
+footer {
+  margin-top: 20px;
+  padding: 10px;
+  background: #aed6f1;
+  text-align: center;
 }
