@@ -6,13 +6,20 @@ body {
 
 .header {
   text-align: center;
-  background: #ffe4b5;
-  padding: 10px;
+  background: #1E3A8A; /* نیلی */
+  color: #fff;
+  padding: 15px;
   border-radius: 5px;
 }
 
 .header p {
   margin: 3px 0;
+}
+
+.badaam-style {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 36px;
+  color: #FFD700; /* طلایی قشنگ */
 }
 
 .product {
@@ -41,4 +48,21 @@ button:hover {
   background: #fff8dc;
   padding: 10px;
   border-radius: 5px;
+}
+
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+#cart-table th, #cart-table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+
+#cart-table tfoot td {
+  font-weight: bold;
+  background: #eee;
 }
