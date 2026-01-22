@@ -1,117 +1,72 @@
 body {
   margin: 0;
-  font-family: sans-serif;
-  background: #e8f0fe;
+  font-family: Tahoma, sans-serif;
+  background: #e6f0f7; /* آبی ملایم */
 }
 
-.hidden {
-  display: none;
-}
-
-/* زبان */
-#languageScreen {
-  position: fixed;
-  inset: 0;
-  background: #1f3bb3;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.language-box {
-  text-align: center;
-}
-
-.language-box p {
-  margin: 6px 0;
-  font-size: 18px;
-}
-
-.language-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-}
-
-.language-buttons button {
-  padding: 10px 22px;
-  border: none;
-  border-radius: 6px;
-  background: gold;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* سرصفحه */
-.site-header {
-  background: #1f3bb3;
-  color: white;
-  text-align: center;
+.header {
+  background: #1e3a8a; /* نیلی */
   padding: 15px;
-}
-
-.brand {
-  font-style: italic;
-  letter-spacing: 2px;
+  text-align: center;
 }
 
 .shop-info {
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-/* محصولات */
-#products .product {
-  background: white;
-  margin: 10px;
+  background: #c7f3c2; /* سبز روشن */
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
-.qty {
+.shop-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.shop-name-en {
+  font-size: 30px;
+  font-family: cursive;
+  color: #0f172a;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #1e3a8a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lang-text p {
+  margin: 6px;
+  font-size: 18px;
+}
+
+.lang-buttons {
   display: flex;
   gap: 10px;
-  align-items: center;
+  margin-top: 15px;
 }
 
-.qty button {
-  padding: 4px 10px;
+.lang-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: gold;
+  border: none;
+  border-radius: 5px;
 }
 
-/* کامنت */
-.comment-icon {
-  cursor: pointer;
-  font-size: 18px;
-  margin-right: 10px;
-}
-
-.comment-box {
-  display: none;
-  margin-top: 6px;
-}
-
-.comment-box textarea {
-  width: 100%;
-  height: 50px;
-}
-
-table {
-  width: 100%;
-  background: white;
-  border-collapse: collapse;
-}
-
-th, td {
-  border: 1px solid #ccc;
-  padding: 6px;
-  text-align: center;
-}
-
-footer {
-  margin-top: 20px;
+.product {
+  background: #fff;
   padding: 10px;
-  text-align: center;
-  background: #cfe2ff;
+  margin: 8px;
+  border-radius: 8px;
+  width: 220px;
+}
+
+.comment-btn {
+  cursor: pointer;
+  font-size: 20px;
 }
