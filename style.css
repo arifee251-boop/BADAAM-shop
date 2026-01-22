@@ -1,44 +1,44 @@
 body {
-  font-family: sans-serif;
-  background: #fafafa;
-  padding: 10px;
+  font-family: Tahoma, sans-serif;
+  margin: 10px;
+  background: #fdf6e3;
 }
 
-h1, h2 {
+.header {
   text-align: center;
+  background: #ffe4b5;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.product, .cart-item {
+.header p {
+  margin: 3px 0;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 5px;
   background: #fff;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: #2ca36c;
-  color: #fff;
+  padding: 5px 10px;
+  margin: 2px;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 3px;
+  background: #f78c1f;
+  color: #fff;
+  cursor: pointer;
 }
 
-input, textarea, select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 6px;
+button:hover {
+  background: #e06f00;
 }
 
-.box {
-  background: #fff;
+#cart-section, #order-form {
+  background: #fff8dc;
   padding: 10px;
-  margin-top: 10px;
-  border-radius: 8px;
-}
-
-.hidden {
-  display: none;
+  border-radius: 5px;
 }
