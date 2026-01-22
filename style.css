@@ -43,12 +43,14 @@ body {
   padding: 10px;
   margin: 8px;
   background: #fff;
-  width: 220px;
+  width: 260px; /* کادر بزرگ‌تر برای عکس */
   text-align: center;
 }
 
 input[type=number] {
-  width: 60px;
+  width: 80px; /* کادر بزرگ‌تر */
+  font-size: 16px;
+  text-align: center;
 }
 
 button {
@@ -95,3 +97,19 @@ button:hover {
   background: gold;
   color: #1e3a8a;
 }
+
+/* جدول فاکتور */
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#cart-table th, #cart-table td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+/* راست به چپ و چپ به راست */
+.rtl { direction: rtl; }
+.ltr { direction: ltr; }
