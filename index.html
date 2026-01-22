@@ -5,68 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BADAAM | فروشگاه میوه خشک</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
-<div class="header">
-  <h1><span class="badaam-style">BADAAM</span> | فروشگاه آنلاین میوه خشک</h1>
-  <p>فروشگاه اینترنتی میوه خُشک بادام</p>
-  <p>English: BADAAM dried fruit</p>
-  <p>📞 تماس: ۰۷۸۵۲۷۷۲۵۱ | ۰۷۹۸۹۶۳۰۰۷</p>
-  <p>📱 تلگرام: @0798963007 | 💬 واتساپ: ۰۷۹۸۹۶۳۰۰۷</p>
+<!-- صفحه انتخاب زبان -->
+<div id="language-selection" class="overlay">
+  <h2>زبان خود را انتخاب کنید / Pick your language / خپله ژبه وټاکئ</h2>
+  <div class="lang-buttons">
+    <button onclick="setLanguage('fa')">دری</button>
+    <button onclick="setLanguage('ps')">پشتو</button>
+    <button onclick="setLanguage('en')">English</button>
+  </div>
 </div>
 
-<hr>
+<!-- سایت اصلی -->
+<div id="main-site" style="display:none;">
+  <div class="header">
+    <h1 class="shop-name" id="shop-name">فروشگاه اینترنتی میوه خُشک بادام</h1>
+    <h2 class="shop-name-en" id="shop-name-en">BADAAM dried fruit</h2>
+    <div class="contacts" id="contacts">
+      <p><i class="fas fa-phone"></i> ۰۷۸۵۲۷۷۲۵۱ | ۰۷۹۸۹۶۳۰۰۷</p>
+      <p><i class="fab fa-telegram"></i> @0798963007 | <i class="fab fa-whatsapp"></i> 0798963007</p>
+    </div>
+  </div>
 
-<div id="products"></div>
+  <hr>
 
-<hr>
+  <div id="products"></div>
 
-<div id="cart-section">
-  <h2>سبد خرید / فاکتور</h2>
-  <table id="cart-table">
-    <thead>
-      <tr>
-        <th>شماره</th>
-        <th>نام محصول</th>
-        <th>مقدار (کیلو)</th>
-        <th>فی کیلو</th>
-        <th>مبلغ</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-    <tfoot>
-      <tr>
-        <td colspan="4">جمع کل</td>
-        <td id="total-amount">0</td>
-      </tr>
-    </tfoot>
-  </table>
-  <button id="show-order-form">ثبت سفارش</button>
-</div>
+  <hr>
 
-<hr>
+  <div id="cart-section">
+    <h2 id="cart-title">سبد خرید / فاکتور</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th id="th-number">شماره</th>
+          <th id="th-product">نام محصول</th>
+          <th id="th-quantity">مقدار (کیلو)</th>
+          <th id="th-price">فی کیلو</th>
+          <th id="th-amount">مبلغ</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" id="total-label">جمع کل</td>
+          <td id="total-amount">0</td>
+        </tr>
+      </tfoot>
+    </table>
+    <button id="show-order-form">ثبت سفارش</button>
+  </div>
 
-<div id="order-form" style="display:none;">
-  <h2>فرم ثبت سفارش</h2>
-  <form id="form">
-    <label>نام و نام خانوادگی:</label><br>
-    <input type="text" id="name" required><br>
+  <hr>
 
-    <label>آدرس:</label><br>
-    <input type="text" id="address" required><br>
+  <div id="order-form" style="display:none;">
+    <h2 id="form-title">فرم ثبت سفارش</h2>
+    <form id="form">
+      <label id="label-name">نام و نام خانوادگی:</label><br>
+      <input type="text" id="name" required><br>
 
-    <label>شماره تماس:</label><br>
-    <input type="tel" id="phone" required><br>
+      <label id="label-address">آدرس:</label><br>
+      <input type="text" id="address" required><br>
 
-    <label>نوع پرداخت:</label><br>
-    <select id="payment">
-      <option value="نقدی">نقدی</option>
-      <option value="کارت به کارت">کارت به کارت</option>
-    </select><br><br>
+      <label id="label-phone">شماره تماس:</label><br>
+      <input type="tel" id="phone" required><br>
 
-    <button type="submit">ثبت سفارش</button>
-  </form>
+      <label id="label-payment">نوع پرداخت:</label><br>
+      <select id="payment">
+        <option value="نقدی" id="opt-cash">نقدی</option>
+        <option value="کارت به کارت" id="opt-card">کارت به کارت</option>
+      </select><br><br>
+
+      <button type="submit" id="submit-order">ثبت سفارش</button>
+    </form>
+  </div>
 </div>
 
 <script src="app.js"></script>
