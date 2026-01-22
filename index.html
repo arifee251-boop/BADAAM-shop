@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>BADAAM | فروشگاه میوه خشک</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<h1>🥜 فروشگاه BADAAM</h1>
+
+<!-- بخش محصولات -->
+<div id="products"></div>
+
+<!-- سبد خرید -->
+<h2>🛒 سبد خرید</h2>
+<div id="cart"></div>
+
+<!-- پیش نمایش سفارش -->
+<button onclick="showPreview()">پیش‌نمایش سفارش</button>
+<div id="preview" class="box hidden"></div>
+
+<!-- فرم سفارش -->
+<div id="checkout" class="box hidden">
+  <h3>📦 اطلاعات ارسال</h3>
+  <input id="name" placeholder="نام مشتری">
+  <input id="phone" placeholder="شماره تماس">
+  <textarea id="address" placeholder="آدرس کامل"></textarea>
+
+  <select id="payment">
+    <option value="cash">پرداخت نقدی</option>
+    <option value="online">پرداخت آنلاین</option>
+  </select>
+
+  <button onclick="submitOrder()">ثبت نهایی سفارش</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
