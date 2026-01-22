@@ -1,40 +1,37 @@
 body {
-  font-family: Tahoma, sans-serif;
   margin: 0;
-  background: #3CAEA3; /* آبی مایل به سبز */
+  font-family: Tahoma, sans-serif;
+  background: #cce6ff; /* آبی ملایم */
 }
 
 .header {
-  text-align: center;
-  background: #90EE90; /* سبز روشن */
-  color: #000;
+  background: #1e3a8a; /* نیلی سرصفحه */
   padding: 15px;
-  border-radius: 5px;
+  text-align: center;
+}
+
+.shop-info {
+  background: #c7f3c2; /* سبز روشن */
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .shop-name {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
-  margin: 5px 0;
 }
 
 .shop-name-en {
-  font-family: 'Brush Script MT', cursive;
-  font-size: 36px;
-  color: #FFD700; /* طلایی */
-  margin: 5px 0;
+  font-size: 30px;
+  font-family: cursive;
+  color: #0f172a;
 }
 
 .contacts p {
   margin: 3px 0;
-  font-size: 16px;
 }
 
-.contacts i {
-  margin-right: 5px;
-}
-
-#products-container, #reviews-container {
+#products-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -42,18 +39,23 @@ body {
 
 .product {
   border: 1px solid #ccc;
-  padding: 8px;
-  margin: 5px;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 8px;
   background: #fff;
-  width: 200px;
+  width: 220px;
+  text-align: center;
+}
+
+input[type=number] {
+  width: 60px;
 }
 
 button {
   padding: 5px 10px;
-  margin: 2px;
+  margin-top: 5px;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   background: #f78c1f;
   color: #fff;
   cursor: pointer;
@@ -63,38 +65,11 @@ button:hover {
   background: #e06f00;
 }
 
-#cart-section, #order-form {
-  background: #fff8dc;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
-}
-
-#cart-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 10px;
-}
-
-#cart-table th, #cart-table td {
-  border: 1px solid #ccc;
-  padding: 5px;
-  text-align: center;
-}
-
-#cart-table tfoot td {
-  font-weight: bold;
-  background: #eee;
-}
-
-/* صفحه انتخاب زبان */
+/* overlay انتخاب زبان */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #1E3A8A;
+  inset: 0;
+  background: #1e3a8a;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -103,35 +78,20 @@ button:hover {
   z-index: 9999;
 }
 
-.overlay button {
-  margin: 10px;
-  padding: 15px 30px;
+.lang-text p {
+  margin: 4px 0;
   font-size: 18px;
-  border-radius: 5px;
-  border: none;
-  background: #FFD700;
-  color: #1E3A8A;
-  cursor: pointer;
 }
 
-.overlay button:hover {
-  background: #ffc107;
+.lang-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-footer {
-  background: #1E3A8A;
-  color: #fff;
-  padding: 15px;
-}
-
-footer input, footer textarea {
-  display: block;
-  width: 90%;
-  margin: 5px auto;
-  padding: 5px;
-}
-
-footer button {
-  margin: 5px auto;
-  display: block;
+.lang-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: gold;
+  color: #1e3a8a;
 }
