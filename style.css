@@ -1,7 +1,7 @@
 body {
   font-family: Tahoma, sans-serif;
   margin: 0;
-  background: #fdf6e3;
+  background: #3CAEA3; /* آبی مایل به سبز */
 }
 
 .header {
@@ -61,6 +61,7 @@ button:hover {
   padding: 10px;
   border-radius: 5px;
   margin: 10px 0;
+  direction: rtl; /* فاکتور راست به چپ */
 }
 
 #cart-table {
