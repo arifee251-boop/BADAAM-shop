@@ -1,17 +1,17 @@
-let lang = "fa";
 let cart = [];
 
 const products = [
   { id: 1, name: "مغز بادام", price: 250 },
-  { id: 2, name: "بادام کاغذی", price: 250 },
-  { id: 3, name: "کشمش", price: 120 },
-  { id: 4, name: "خرمای خشک", price: 180 },
-  { id: 5, name: "انجیر خشک", price: 300 }
+  { id: 2, name: "بادام کاغذی ستربایی", price: 250 },
+  { id: 3, name: "بادام کاغذی مخملی", price: 250 },
+  { id: 4, name: "بادام سنگی با پوست", price: 250 },
+  { id: 5, name: "کشمش", price: 120 },
+  { id: 6, name: "انجیر خشک", price: 300 }
 ];
 
-function setLanguage(l) {
-  lang = l;
-  document.getElementById("langOverlay").style.display = "none";
+function setLanguage() {
+  document.getElementById("languageScreen").style.display = "none";
+  document.getElementById("app").classList.remove("hidden");
   renderProducts();
 }
 
@@ -21,18 +21,22 @@ function renderProducts() {
   products.forEach(p => {
     box.innerHTML += `
       <div class="product">
-        <strong>${p.name}</strong> (${p.price} Afs)
+        <strong>${p.name}</strong>
+        <span class="comment-icon" onclick="toggleComment(${p.id})">💬</span>
         <div class="qty">
-          <button onclick="addToCart(${p.id}, -1)">−</button>
+          <button onclick="changeQty(${p.id}, -1)">−</button>
           <span id="qty-${p.id}">0</span>
-          <button onclick="addToCart(${p.id}, 1)">+</button>
+          <button onclick="changeQty(${p.id}, 1)">+</button>
+        </div>
+        <div id="comment-${p.id}" class="comment-box">
+          <textarea placeholder="نظر خود را بنویسید"></textarea>
         </div>
       </div>
     `;
   });
 }
 
-function addToCart(id, delta) {
+function changeQty(id, delta) {
   let item = cart.find(i => i.id === id);
   if (!item && delta > 0) {
     item = { id, qty: 0 };
@@ -40,14 +44,16 @@ function addToCart(id, delta) {
   }
   if (item) {
     item.qty += delta;
-    if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+    if (item.qty <= 0) {
+      cart = cart.filter(i => i.id !== id);
+    }
     document.getElementById("qty-" + id).innerText = item ? item.qty : 0;
   }
   renderInvoice();
 }
 
 function renderInvoice() {
-  const tbody = document.querySelector("#invoiceTable tbody");
+  const tbody = document.getElementById("invoice");
   tbody.innerHTML = "";
   let sum = 0;
   cart.forEach((c, i) => {
@@ -64,28 +70,10 @@ function renderInvoice() {
       </tr>
     `;
   });
-  document.getElementById("grandTotal").innerText =
-    "جمع کل: " + sum + " Afs";
+  document.getElementById("total").innerText = "جمع کل: " + sum + " افغانی";
 }
 
-function showPaymentInfo() {
-  const v = document.getElementById("paymentType").value;
-  const box = document.getElementById("paymentInfo");
-  if (v === "online") {
-    box.innerHTML = `
-      حساب‌پی / اورم‌پی: 0798963007<br>
-      اتوما‌پی: 0778609717
-    `;
-  } else if (v === "usdt") {
-    box.innerHTML = `
-      USDT (BNB Smart Chain)<br>
-      0x9a5c21c1bf5596885f72431d6d1ff46fa59e5252
-    `;
-  } else {
-    box.innerHTML = "";
-  }
-}
-
-function sendOrder() {
-  alert("سفارش ثبت شد و به تلگرام ارسال می‌شود");
+function toggleComment(id) {
+  const box = document.getElementById("comment-" + id);
+  box.style.display = box.style.display === "block" ? "none" : "block";
 }
