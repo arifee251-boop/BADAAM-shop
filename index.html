@@ -2,58 +2,102 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>BADAAM</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BADAAM Dried Fruit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
 </head>
 <body>
 
 <!-- انتخاب زبان -->
 <div id="langOverlay" class="overlay">
-  <h2>زبان</h2>
-  <h2>خود را</h2>
-  <h2>انتخاب کنید</h2>
+  <div class="lang-box">
+    <p>زبان خود را انتخاب کنید</p>
+    <p>خپل ژبه وټاکئ</p>
+    <p>Please select your language</p>
 
-  <button onclick="setLanguage('fa')">دری</button>
-  <button onclick="setLanguage('ps')">پشتو</button>
-  <button onclick="setLanguage('en')">English</button>
+    <div class="lang-buttons">
+      <button onclick="setLanguage('fa')">دری</button>
+      <button onclick="setLanguage('ps')">پشتو</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+  </div>
 </div>
 
-<header class="header">
-  <h1>فروشگاه اینترنتی میوه خُشک بادام</h1>
-  <h2 class="brand">BADAAM</h2>
-  <p>📞 ۰۷۸۵۲۷۷۲۵۱ - ۰۷۹۸۹۶۳۰۰۷</p>
-  <p>💬 Telegram: BADAMMdriedfruitbot</p>
-  <p>📱 WhatsApp: ۰۷۹۸۹۶۳۰۰۷</p>
+<!-- سرصفحه -->
+<header>
+  <h1 class="fa">فروشگاه اینترنتی میوه خُشک بادام</h1>
+  <h1 class="en">Dried fruit online store</h1>
+  <h2 class="brand">BADAAM dried fruit</h2>
+
+  <div class="contact">
+    📞 0785277251 – 0798963007  
+    <br>
+    💬 Telegram / WhatsApp: 0798963007
+  </div>
 </header>
 
-<section id="products">
-  <h2>محصولات</h2>
-  <div id="productList"></div>
-</section>
+<main>
 
-<section id="cart">
-  <h2>فاکتور</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>محصول</th>
-        <th>مقدار</th>
-        <th>فی کیلو</th>
-        <th>مبلغ</th>
-      </tr>
-    </thead>
-    <tbody id="cartBody"></tbody>
-    <tfoot>
-      <tr>
-        <td colspan="4">جمع کل</td>
-        <td id="total">0</td>
-      </tr>
-    </tfoot>
-  </table>
-</section>
+  <!-- محصولات -->
+  <section>
+    <h3 class="fa">محصولات</h3>
+    <h3 class="en">Products</h3>
 
+    <div id="products"></div>
+  </section>
+
+  <!-- فاکتور -->
+  <section id="invoiceSection">
+    <h3 class="fa">فاکتور</h3>
+    <h3 class="en">Invoice</h3>
+    <table id="invoiceTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class="fa">نام محصول</th>
+          <th class="en">Product</th>
+          <th class="fa">کیلو</th>
+          <th class="en">Kgr</th>
+          <th class="fa">فی‌کیلو</th>
+          <th class="en">Price</th>
+          <th class="fa">مبلغ</th>
+          <th class="en">Total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="grandTotal"></div>
+  </section>
+
+  <!-- پرداخت -->
+  <section>
+    <h3 class="fa">نوع پرداخت</h3>
+    <h3 class="en">Payment</h3>
+
+    <select id="paymentType" onchange="showPaymentInfo()">
+      <option value="">انتخاب کنید</option>
+      <option value="cash">نقدی هنگام تحویل</option>
+      <option value="online">پرداخت آنلاین</option>
+      <option value="usdt">تتر (BNB Smart Chain)</option>
+    </select>
+
+    <div id="paymentInfo"></div>
+  </section>
+
+  <!-- ارسال سفارش -->
+  <section>
+    <button onclick="sendOrder()">ارسال سفارش</button>
+  </section>
+
+  <!-- تماس با ما -->
+  <footer>
+    <h4>تماس با ما</h4>
+    📞 0785277251 – 0798963007 <br>
+    💬 Telegram / WhatsApp: 0798963007
+  </footer>
+
+</main>
+
+<script src="app.js"></script>
 </body>
 </html>
