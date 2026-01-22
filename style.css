@@ -1,38 +1,42 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #d6eaf8;
+  background: #e8f0fe;
 }
 
-.overlay {
+.hidden {
+  display: none;
+}
+
+/* زبان */
+#languageScreen {
   position: fixed;
   inset: 0;
-  background: #1f618d;
+  background: #1f3bb3;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  color: white;
 }
 
-.lang-box {
+.language-box {
   text-align: center;
 }
 
-.lang-box p {
-  font-size: 18px;
+.language-box p {
   margin: 6px 0;
+  font-size: 18px;
 }
 
-.lang-buttons {
+.language-buttons {
   margin-top: 20px;
   display: flex;
   gap: 15px;
   justify-content: center;
 }
 
-.lang-buttons button {
-  padding: 12px 22px;
+.language-buttons button {
+  padding: 10px 22px;
   border: none;
   border-radius: 6px;
   background: gold;
@@ -40,11 +44,12 @@ body {
   cursor: pointer;
 }
 
-header {
-  background: #1f618d;
+/* سرصفحه */
+.site-header {
+  background: #1f3bb3;
   color: white;
-  padding: 15px;
   text-align: center;
+  padding: 15px;
 }
 
 .brand {
@@ -52,19 +57,16 @@ header {
   letter-spacing: 2px;
 }
 
-.contact {
-  margin-top: 10px;
+.shop-info {
   font-size: 14px;
+  margin-top: 8px;
 }
 
-main {
-  padding: 15px;
-}
-
+/* محصولات */
 #products .product {
   background: white;
+  margin: 10px;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 6px;
 }
 
@@ -75,13 +77,29 @@ main {
 }
 
 .qty button {
-  padding: 5px 10px;
+  padding: 4px 10px;
+}
+
+/* کامنت */
+.comment-icon {
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.comment-box {
+  display: none;
+  margin-top: 6px;
+}
+
+.comment-box textarea {
+  width: 100%;
+  height: 50px;
 }
 
 table {
   width: 100%;
   background: white;
-  margin-top: 10px;
   border-collapse: collapse;
 }
 
@@ -94,6 +112,6 @@ th, td {
 footer {
   margin-top: 20px;
   padding: 10px;
-  background: #aed6f1;
   text-align: center;
+  background: #cfe2ff;
 }
