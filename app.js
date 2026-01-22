@@ -2,11 +2,18 @@ const tg = window.Telegram.WebApp;
 tg.ready();
 
 const products = [
-  { id: 1, name: "بادام", price: 250 },
-  { id: 2, name: "کشمش", price: 120 },
-  { id: 3, name: "خرما خشک", price: 180 },
-  { id: 4, name: "انجیر خشک", price: 300 },
-  { id: 5, name: "زردآلو خشک", price: 220 }
+  { id: 1, name: "مغز بادام فی‌کیلو", price: 250 },
+  { id: 1, name: "بادام کاغذی ستربایی فی‌کیلو", price: 250 },
+  { id: 1, name: "بادام کاغذی مخملی فی‌کیلو", price: 250 },
+  { id: 1, name: "بادام کاغذی پسته‌ای فی‌کیلو", price: 250 },
+  { id: 1, name: "بادام سنگی با پوست فی‌کیلو", price: 250 },
+  { id: 1, name: "بادام کاغذی شاخ بُز فی‌کیلو", price: 250 },
+  { id: 2, name: "کشمش فی‌کیلو", price: 120 },
+  { id: 3, name: "خرمای خُشک", price: 180 },
+  { id: 4, name: "انجیر خُشک فی‌کیلو", price: 300 },
+  { id: 5, name: "کِشته زردآلو(برگی) فی‌کیلو", price: 220 },
+  { id: 6, name: "کِشته زردآلو خسته‌دار فی‌کیلو", price: 220 },
+  { id: 1, name: "کِشته غُلینگ خسته‌دار فی‌کیلو", price: 250 }
 ];
 
 let cart = [];
