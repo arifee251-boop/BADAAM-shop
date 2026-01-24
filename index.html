@@ -2,104 +2,57 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BADAAM - فروشگاه میوه خشک</title>
+  <title>BADAAM | Dried Fruit Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
 
 <!-- انتخاب زبان -->
-<div id="language-overlay" class="overlay">
-  <div class="lang-text">
-    <p>زبان خود را انتخاب کنید</p>
-    <p>Choose your language</p>
-    <p>خپله ژبه وټاکئ</p>
-  </div>
+<div id="lang-overlay">
+  <p>زبان خود را انتخاب کنید</p>
+  <p>خپله ژبه وټاکئ</p>
+  <p>Select your language</p>
+
   <div class="lang-buttons">
-    <button onclick="setLanguage('fa')">دری</button>
-    <button onclick="setLanguage('ps')">پشتو</button>
-    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLang('fa')">دری</button>
+    <button onclick="setLang('ps')">پشتو</button>
+    <button onclick="setLang('en')">English</button>
   </div>
 </div>
 
-<!-- سرصفحه -->
+<!-- هدر -->
 <header class="header">
-  <div class="shop-info">
-    <div class="shop-name">فروشگاه اینترنتی میوه خُشک بادام</div>
-    <div class="shop-name-en">BADAAM dried fruit</div>
-    <div class="contacts">
-      <p>📞 ۰۷۸۵۲۷۷۲۵۱ - ۰۷۹۸۹۶۳۰۰۷</p>
-      <p>💬 Telegram: BADAMMdriedfruitbot</p>
-      <p>📱 WhatsApp: ۰۷۹۸۹۶۳۰۰۷</p>
-    </div>
-  </div>
+  <h1 id="shop-fa">فروشگاه اینترنتی بادام</h1>
+  <h2 id="shop-en">BADAAM dried fruit</h2>
 </header>
 
 <!-- محصولات -->
-<section id="products-section">
-  <h2>محصولات</h2>
-  <div id="products-container"></div>
-</section>
+<main id="products"></main>
 
-<!-- فاکتور / سبد خرید -->
-<section id="cart-section">
-  <h2>فاکتور</h2>
-  <table id="cart-table">
+<!-- فاکتور -->
+<section id="invoice">
+  <h3>فاکتور</h3>
+  <table>
     <thead>
       <tr>
-        <th>شماره</th>
-        <th>نام محصول</th>
+        <th>#</th>
+        <th>محصول</th>
         <th>مقدار</th>
-        <th>فی کیلو</th>
+        <th>قیمت</th>
         <th>مبلغ</th>
       </tr>
     </thead>
-    <tbody id="cart-body"></tbody>
+    <tbody id="invoice-body"></tbody>
     <tfoot>
       <tr>
         <td colspan="4">جمع کل</td>
-        <td id="cart-total">0</td>
+        <td id="total">0</td>
       </tr>
     </tfoot>
   </table>
 </section>
-
-<!-- فرم سفارش -->
-<section id="order-form">
-  <h2>فرم سفارش</h2>
-  <input type="text" id="customer-name" placeholder="نام شما">
-  <input type="text" id="customer-address" placeholder="آدرس">
-  <input type="text" id="customer-phone" placeholder="شماره تماس">
-
-  <label>نوع پرداخت:</label>
-  <select id="payment-type" onchange="showPaymentOptions()">
-    <option value="cash">نقدی</option>
-    <option value="online">پرداخت آنلاین</option>
-  </select>
-
-  <div id="online-options" style="display:none;">
-    <label>روش پرداخت آنلاین:</label>
-    <select id="online-method" onchange="updatePaymentDetails()">
-      <option value="hesabpay">حساب‌پی</option>
-      <option value="ormpay">اورم‌پی</option>
-      <option value="automapay">اتوما‌پی</option>
-      <option value="tether">تتر</option>
-      <option value="binance">بی‌آن.بی</option>
-    </select>
-    <div id="payment-details"></div>
-  </div>
-
-  <button onclick="submitOrder()">ثبت سفارش</button>
-</section>
-
-<!-- تماس با ما -->
-<footer>
-  <h2>تماس با ما</h2>
-  <p>📞 ۰۷۸۵۲۷۷۲۵۱ - ۰۷۹۸۹۶۳۰۰۷</p>
-  <p>💬 Telegram: BADAMMdriedfruitbot</p>
-  <p>📱 WhatsApp: ۰۷۹۸۹۶۳۰۰۷</p>
-</footer>
 
 </body>
 </html>
