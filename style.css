@@ -5,18 +5,11 @@ body {margin:0;font-family:Tahoma,sans-serif;background:#e8f2f8}
 .brand{font-family:cursive;color:#ffd700}
 .contacts p{margin:2px 0;font-size:14px}
 .product{display:flex;background:white;margin:10px;padding:10px;border-radius:10px;cursor:pointer}
-.product img{width:120px;height:120px;background:#ddd;border-radius:6px}
+.product img{width:150px;height:150px;background:#ddd;border-radius:6px}
 .product-info{flex:1;padding:0 12px}
-.qty-box{display:flex;gap:6px;margin-top:8px}
+.qty-box{display:flex;gap:6px;margin-top:8px;align-items:center}
 .qty-box button{width:34px;height:34px}
-.add-cart{background:#16a34a;color:white;padding:8px 14px;border-radius:6px;border:none}
+.add-cart{background:#16a34a;color:white;padding:8px 14px;border-radius:6px;border:none;margin-left:5px}
 #invoice{background:white;margin:12px;padding:12px;border-radius:10px}
 table{width:100%;border-collapse:collapse}
 td,th{border:1px solid #ccc;padding:6px;text-align:center}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;z-index:1000}
-.modal-content{background:white;width:95%;max-width:900px;margin:30px auto;border-radius:10px;padding:10px}
-.close{font-size:26px;cursor:pointer}
-.modal-body{display:flex;flex-wrap:wrap}
-.modal-images{flex:1}
-.modal-images img{width:100%;background:#ccc}
-.modal-info{flex:1;padding:10px}
