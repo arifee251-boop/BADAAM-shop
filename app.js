@@ -1,18 +1,17 @@
 let language='fa',cart=[];
-
 const products=[
-{id:1,name:"مغز بادام",price:250,desc:"مغز بادام تازه و اعلا"},
-{id:2,name:"بادام کاغذی ستربایی",price:250,desc:"بادام با پوست نازک"},
-{id:3,name:"بادام کاغذی مخملی",price:250,desc:"بادام خوش‌طعم"},
-{id:4,name:"بادام کاغذی پسته‌ای",price:250,desc:"بادام صادراتی"},
-{id:5,name:"بادام سنگی",price:250,desc:"بادام محلی"},
-{id:6,name:"بادام شاخ بز",price:250,desc:"بادام خاص"},
-{id:7,name:"کشمش",price:120,desc:"کشمش شیرین"},
-{id:8,name:"خرمای خشک",price:180,desc:"خرمای مرغوب"},
-{id:9,name:"انجیر خشک",price:300,desc:"انجیر اعلا"},
-{id:10,name:"کشته زردآلو برگی",price:220,desc:"زردآلو خشک"},
-{id:11,name:"کشته زردآلو هسته‌دار",price:220,desc:"زردآلو محلی"},
-{id:12,name:"کشته غلینگ",price:250,desc:"محصول سنتی"}
+{id:1,name:"مغز بادام",price:250,desc:"مغز بادام تازه و اعلا",images:["img1.jpg","img2.jpg"]},
+{id:2,name:"بادام کاغذی ستربایی",price:250,desc:"بادام با پوست نازک",images:["img3.jpg","img4.jpg"]},
+{id:3,name:"بادام کاغذی مخملی",price:250,desc:"بادام خوش‌طعم",images:["img5.jpg"]},
+{id:4,name:"بادام کاغذی پسته‌ای",price:250,desc:"بادام صادراتی",images:["img6.jpg"]},
+{id:5,name:"بادام سنگی",price:250,desc:"بادام محلی",images:["img7.jpg"]},
+{id:6,name:"بادام شاخ بز",price:250,desc:"بادام خاص",images:["img8.jpg"]},
+{id:7,name:"کشمش",price:120,desc:"کشمش شیرین",images:["img9.jpg"]},
+{id:8,name:"خرمای خشک",price:180,desc:"خرمای مرغوب",images:["img10.jpg"]},
+{id:9,name:"انجیر خشک",price:300,desc:"انجیر اعلا",images:["img11.jpg"]},
+{id:10,name:"کشته زردآلو برگی",price:220,desc:"زردآلو خشک",images:["img12.jpg"]},
+{id:11,name:"کشته زردآلو هسته‌دار",price:220,desc:"زردآلو محلی",images:["img13.jpg"]},
+{id:12,name:"کشته غلینگ",price:250,desc:"محصول سنتی",images:["img14.jpg"]}
 ];
 
 function setLanguage(lang){
@@ -26,21 +25,34 @@ renderInvoice();
 function renderProducts(){
 const box=document.getElementById('products-container');box.innerHTML='';
 products.forEach(p=>{
-box.innerHTML+=`<div class="product" onclick="openProduct(${p.id})"><img><div class="product-info"><h3>${p.name}</h3><p>${p.price} ${language==='en'?'AFS':'افغانی'}</p><div class="qty-box" onclick="event.stopPropagation()"><button onclick="changeQty(${p.id},-1)">−</button><span id="qty-${p.id}">0</span><button onclick="changeQty(${p.id},1)">+</button><button class="add-cart" onclick="addToCart(${p.id})">افزودن</button></div></div></div>`});
+box.innerHTML+=`
+<div class="product">
+<img src="${p.images[0]}" onclick="openProductPage(${p.id})">
+<div class="product-info">
+<h3>${p.name}</h3>
+<p>${p.price} ${language==='en'?'AFS':'افغانی'}</p>
+<div class="qty-box">
+<button onclick="changeQty(${p.id},-1)">−</button>
+<span id="qty-${p.id}">1</span>
+<button onclick="changeQty(${p.id},1)">+</button>
+<button class="add-cart" onclick="addToCart(${p.id})">افزودن به سبد خرید</button>
+</div>
+</div>
+</div>`});
 }
 
-function changeQty(id,val){const el=document.getElementById(`qty-${id}`);el.innerText=Math.max(0,Number(el.innerText)+val)}
+function changeQty(id,val){const el=document.getElementById(`qty-${id}`);el.innerText=Math.max(1,Number(el.innerText)+val)}
 
 function addToCart(id){
 const qty=Number(document.getElementById(`qty-${id}`).innerText);
-if(!qty)return;
 const p=products.find(x=>x.id===id);
 cart.push({...p,qty});
 renderInvoice();
 }
 
 function renderInvoice(){
-const body=document.getElementById('invoice-body');body.innerHTML='';let total=0;cart.forEach((c,i)=>{let sum=c.qty*c.price;total+=sum;body.innerHTML+=`<tr><td>${i+1}</td><td>${c.name}</td><td>${c.qty} ${language==='en'?'Kgr':'کیلو'}</td><td>${c.price}</td><td>${sum}</td></tr>`});
+const body=document.getElementById('invoice-body');body.innerHTML='';let total=0;
+cart.forEach((c,i)=>{let sum=c.price*c.qty;total+=sum;body.innerHTML+=`<tr><td>${i+1}</td><td>${c.name}</td><td>${c.qty} ${language==='en'?'Kgr':'کیلو'}</td><td>${c.price}</td><td>${sum}</td></tr>`});
 document.getElementById('invoice-total').innerText=total;
 }
 
@@ -80,21 +92,33 @@ message+=`جمع کل: ${total} افغانی\n\n`;
 if(payment==='online'){message+=`پرداخت آنلاین: ${onlineMethod}\n`;message+=document.getElementById('payment-details').innerText}
 else{message+='پرداخت نقدی هنگام تحویل';}
 
-const waLink=`https://wa.me/93798963007?text=${encodeURIComponent(message)}`;
-window.open(waLink,'_blank');
-
-const tgLink=`https://t.me/BADAMMdriedfruitbot?text=${encodeURIComponent(message)}`;
-window.open(tgLink,'_blank');
-
+window.open(`https://wa.me/93798963007?text=${encodeURIComponent(message)}`,'_blank');
+window.open(`https://t.me/BADAMMdriedfruitbot?text=${encodeURIComponent(message)}`,'_blank');
 alert('سفارش ارسال شد!');
 }
 
-function openProduct(id){
+// صفحه محصول کامل
+function openProductPage(id){
+document.getElementById('products-container').style.display='none';
+document.getElementById('product-page').style.display='block';
 const p=products.find(x=>x.id===id);
-document.getElementById('modal-name').innerText=p.name;
-document.getElementById('modal-price').innerText=p.price+(language==='en'?' AFS':' افغانی');
-document.getElementById('modal-desc').innerText=p.desc;
-document.getElementById('product-modal').style.display='block';
+const container=document.getElementById('product-details');
+container.innerHTML=`
+<h2>${p.name}</h2>
+<p>${p.price} ${language==='en'?'AFS':'افغانی'}</p>
+<p>${p.desc}</p>
+<div class="gallery">${p.images.map(i=>`<img src="${i}" style="width:100px;margin:5px;">`).join('')}</div>
+<div class="qty-box">
+<button onclick="changeQty(${p.id},-1)">−</button>
+<span id="qty-${p.id}">1</span>
+<button onclick="changeQty(${p.id},1)">+</button>
+<button class="add-cart" onclick="addToCart(${p.id})">افزودن به سبد خرید</button>
+</div>
+`;
+
 }
 
-function closeProduct(){document.getElementById('product-modal').style.display='none'}
+function closeProductPage(){
+document.getElementById('product-page').style.display='none';
+document.getElementById('products-container').style.display='flex';
+}
