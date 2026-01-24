@@ -10,37 +10,38 @@
 <body>
 
 <!-- انتخاب زبان -->
-<div id="lang-overlay">
-  <p>زبان خود را انتخاب کنید</p>
-  <p>خپله ژبه وټاکئ</p>
-  <p>Select your language</p>
-
+<div id="language-overlay">
+  <p class="lang-title">لطفاً زبان خود را انتخاب کنید</p>
+  <p>مهربانی وکړئ خپله ژبه وټاکئ</p>
+  <p>Please select your language</p>
   <div class="lang-buttons">
-    <button onclick="setLang('fa')">دری</button>
-    <button onclick="setLang('ps')">پشتو</button>
-    <button onclick="setLang('en')">English</button>
+    <button onclick="setLanguage('fa')">دری</button>
+    <button onclick="setLanguage('ps')">پشتو</button>
+    <button onclick="setLanguage('en')">English</button>
   </div>
 </div>
 
-<!-- هدر -->
 <header class="header">
-  <h1 id="shop-fa">فروشگاه اینترنتی بادام</h1>
-  <h2 id="shop-en">BADAAM dried fruit</h2>
+  <h1>فروشگاه اینترنتی بادام</h1>
+  <h2 class="brand">BADAAM dried fruit</h2>
+  <div class="contacts">
+    <p>📞 0785277251 - 0798963007</p>
+    <p>💬 تلگرام: BADAMMdriedfruitbot</p>
+    <p>📱 واتساپ: 0798963007</p>
+  </div>
 </header>
 
-<!-- محصولات -->
-<main id="products"></main>
+<main id="products-container"></main>
 
-<!-- فاکتور -->
 <section id="invoice">
-  <h3>فاکتور</h3>
+  <h3>پیش‌نمایش فاکتور</h3>
   <table>
     <thead>
       <tr>
         <th>#</th>
         <th>محصول</th>
         <th>مقدار</th>
-        <th>قیمت</th>
+        <th>فی</th>
         <th>مبلغ</th>
       </tr>
     </thead>
@@ -48,11 +49,60 @@
     <tfoot>
       <tr>
         <td colspan="4">جمع کل</td>
-        <td id="total">0</td>
+        <td id="invoice-total">0</td>
       </tr>
     </tfoot>
   </table>
+  <button onclick="confirmInvoice()">تایید فاکتور</button>
 </section>
+
+<section id="order-section" style="display:none">
+  <h3>فرم سفارش</h3>
+  <input type="text" id="customer-name" placeholder="نام شما">
+  <input type="text" id="customer-address" placeholder="آدرس">
+  <input type="text" id="customer-phone" placeholder="شماره تماس">
+  <label>نوع پرداخت:</label>
+  <select id="payment-type" onchange="showPaymentOptions()">
+    <option value="cash">نقدی</option>
+    <option value="online">پرداخت آنلاین</option>
+  </select>
+  <div id="online-options" style="display:none">
+    <label>روش پرداخت آنلاین:</label>
+    <select id="online-method" onchange="updatePaymentDetails()">
+      <option value="hesabpay">حساب‌پی</option>
+      <option value="ormpay">اورم‌پی</option>
+      <option value="automapay">اتوما‌پی</option>
+      <option value="tether">تتر</option>
+      <option value="binance">بی‌آن.بی</option>
+    </select>
+    <div id="payment-details"></div>
+  </div>
+  <button onclick="submitOrder()">ارسال سفارش</button>
+</section>
+
+<!-- صفحه جزئیات محصول -->
+<div id="product-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeProduct()">×</span>
+    <div class="modal-body">
+      <div class="modal-images">
+        <img id="modal-main-img">
+        <div class="thumbs">
+          <img>
+          <img>
+          <img>
+        </div>
+      </div>
+      <div class="modal-info">
+        <h2 id="modal-name"></h2>
+        <p id="modal-price"></p>
+        <p id="modal-desc"></p>
+        <h4>نظرات کاربران</h4>
+        <div id="modal-reviews">هنوز نظری ثبت نشده</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
